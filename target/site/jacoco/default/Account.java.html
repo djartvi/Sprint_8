@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sprint_8</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">public class Account {
+
+    private final String name;
+    private boolean isNameValid;
+    private boolean isCharacterFound;
+
+<span class="fc" id="L7">    public Account(String name) {</span>
+<span class="fc" id="L8">        this.name = name;</span>
+<span class="fc" id="L9">    }</span>
+
+    public boolean checkNameToEmboss() {
+
+<span class="fc" id="L13">        String specialCharacters = &quot;'\&quot;!#$%&amp;'()*+,-./:;&lt;=&gt;?@[]^_`{|}&quot;;</span>
+
+<span class="fc bfc" id="L15" title="All 10 branches covered.">        if (name.length() &gt;= 3 &amp;&amp; name.length() &lt;= 19 &amp;&amp; !name.startsWith(&quot; &quot;) &amp;&amp; !name.endsWith(&quot; &quot;) &amp;&amp; name.contains(&quot; &quot;)) {</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">            for (int i = 0; i &lt; specialCharacters.length(); i++) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">                if (name.contains(Character.toString(specialCharacters.charAt(i)))) {</span>
+<span class="fc" id="L18">                    isCharacterFound = true;</span>
+<span class="fc" id="L19">                    break;</span>
+                }
+            }
+<span class="fc bfc" id="L22" title="All 2 branches covered.">            if (!isCharacterFound) {</span>
+<span class="fc" id="L23">                isNameValid = true;</span>
+            }
+        }
+
+<span class="fc" id="L27">        return isNameValid;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
